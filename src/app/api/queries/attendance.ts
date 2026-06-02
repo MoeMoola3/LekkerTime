@@ -6,6 +6,8 @@ export async function fetchAttendanceRecords() {
     *,
     employees (
       id,
+      first_name,
+      last_name,
       departments!employees_department_id_fkey (
         id,
         name
@@ -17,6 +19,6 @@ export async function fetchAttendanceRecords() {
     console.error("Error fetching attendance:", error);
     return [];
   }
-
+  console.log(data.map(mapAttendanceRecord));
   return data.map(mapAttendanceRecord);
 }

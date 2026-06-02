@@ -12,6 +12,11 @@ import {
 } from "lucide-react";
 import { fetchAttendanceRecords } from "../api/queries/attendance";
 import { useQuery } from "@tanstack/react-query";
+import {
+  formatDailyTotal,
+  formatTimeDiff,
+} from "../utils/mappers/formatters/time";
+import { formatRosterDate } from "../utils/mappers/formatters/date";
 
 // Mock Data
 const kpiData = [
@@ -49,7 +54,7 @@ const kpiData = [
   },
 ];
 
-export function Roster() {
+export function AttendanceRosterPage() {
   const {
     data: rows = [],
     isPending,
@@ -74,7 +79,7 @@ export function Roster() {
       {/* Page Header */}
       <div>
         <h1 className="text-4xl font-extrabold text-[#1B2B42] tracking-tight">
-          Roster
+          AttendanceRosterPage
         </h1>
         <p className="text-[#5A6B7F] mt-2 text-base font-medium tracking-wide">
           Monitor employee attendance and shift activity
@@ -121,10 +126,24 @@ export function Roster() {
           </div>
 
           <div className="flex items-center gap-3">
+            <div className="relative group">
+              <select className="appearance-none bg-white border border-gray-200 text-[#1B2B42] text-sm rounded-lg pl-4 pr-10 py-2 outline-none focus:ring-2 focus:ring-[#E8A317] focus:border-transparent transition-shadow cursor-pointer font-medium hover:bg-gray-50">
+                <option>Sales</option>
+                <option>Management</option>
+                <option>Accounting</option>
+                <option>Admin</option>
+              </select>
+              <ChevronDown
+                size={16}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none"
+              />
+            </div>
+
             {/* Filter Dropdown */}
             <div className="relative group">
               <select className="appearance-none bg-white border border-gray-200 text-[#1B2B42] text-sm rounded-lg pl-4 pr-10 py-2 outline-none focus:ring-2 focus:ring-[#E8A317] focus:border-transparent transition-shadow cursor-pointer font-medium hover:bg-gray-50">
-                <option>Last 7 Days</option>
+                <option>Today</option>
+                {/* <option>Last 7 Days</option> */}
                 <option>Last 30 Days</option>
                 <option>This Month</option>
                 <option>Previous Month</option>
@@ -193,10 +212,10 @@ export function Roster() {
               {rows.map((row, index) => (
                 <tr
                   key={row.id}
-                  className={`hover:bg-gray-50/80 transition-colors ${index % 2 === 0 ? "bg-white" : "bg-gray-50/30"}`}
+                  className={`hover:bg-gray-100/80 transition-colors ${index % 2 === 0 ? "bg-gray-300/50" : "bg-white"}`}
                 >
                   <td className="py-3 px-5 text-sm text-[#5A6B7F] whitespace-nowrap">
-                    {row.date}
+                    {formatRosterDate(row.date)}
                   </td>
                   <td className="py-3 px-5 text-sm font-medium text-[#1B2B42] whitespace-nowrap">
                     {row.name}
@@ -219,10 +238,10 @@ export function Roster() {
                     })}
                   </td>
                   <td className="py-3 px-5 text-sm font-medium text-[#1B2B42] whitespace-nowrap">
-                    {row.dailyTotal}
+                    {formatDailyTotal(row.dailyTotal)}
                   </td>
                   <td className="py-3 px-5 text-sm text-[#5A6B7F] whitespace-nowrap">
-                    {row.scheduled}
+                    {row.scheduled.slice(0, 5)}
                   </td>
                   <td
                     className={`py-3 px-5 text-sm font-medium text-right whitespace-nowrap ${
@@ -233,7 +252,7 @@ export function Roster() {
                           : "text-slate-500"
                     }`}
                   >
-                    {row.diff}
+                    {formatTimeDiff(row.diff)}
                   </td>
                 </tr>
               ))}

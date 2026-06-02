@@ -15,6 +15,8 @@ export interface AttendanceRecordRaw {
   time_difference: string;
   employees: {
     id: string;
+    first_name: string;
+    last_name: string;
     departments: {
       id: string;
       name: string;
@@ -32,5 +34,5 @@ export interface AttendanceRecord {
   dailyTotal: number;
   scheduled: string;
   diff: string;
-  diffType: "positive" | "negative";
+  diffType: "positive" | "negative" | "neutral";
 }

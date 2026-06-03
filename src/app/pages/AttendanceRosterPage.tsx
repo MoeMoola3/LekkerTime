@@ -79,7 +79,7 @@ export function AttendanceRosterPage() {
       {/* Page Header */}
       <div>
         <h1 className="text-4xl font-extrabold text-[#1B2B42] tracking-tight">
-          AttendanceRosterPage
+          Attendance Roster
         </h1>
         <p className="text-[#5A6B7F] mt-2 text-base font-medium tracking-wide">
           Monitor employee attendance and shift activity

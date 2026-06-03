@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Layout } from "./components/Layout";
 import { AttendanceRosterPage } from "./pages/AttendanceRosterPage";
+import { EmployeesPage } from "./pages/ EmployeesPage";
 
 // Placeholder component for other routes
 const Placeholder = ({ title }: { title: string }) => (
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
       { path: "payroll", element: <Placeholder title="Payroll Management" /> },
       { path: "shifts", element: <Placeholder title="Shift Management" /> },
       { path: "leave", element: <Placeholder title="Leave Management" /> },
-      { path: "employees", element: <Placeholder title="Employees" /> },
+      { path: "employees", Component: EmployeesPage },
       { path: "*", element: <Placeholder title="Not Found" /> },
     ],
   },

@@ -19,6 +19,5 @@ export async function fetchAttendanceRecords() {
     console.error("Error fetching attendance:", error);
     return [];
   }
-  console.log(data.map(mapAttendanceRecord));
   return data.map(mapAttendanceRecord);
 }

@@ -12,11 +12,8 @@ import {
 } from "lucide-react";
 import { fetchAttendanceRecords } from "../api/queries/attendance";
 import { useQuery } from "@tanstack/react-query";
-import {
-  formatDailyTotal,
-  formatTimeDiff,
-} from "../utils/mappers/formatters/time";
-import { formatRosterDate } from "../utils/mappers/formatters/date";
+import { formatDailyTotal, formatTimeDiff } from "../utils/formatters/time";
+import { formatRosterDate } from "../utils/formatters/date";
 
 // Mock Data
 const kpiData = [

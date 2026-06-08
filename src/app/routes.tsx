@@ -21,8 +21,8 @@ export const router = createBrowserRouter([
     path: "/",
     Component: Layout,
     children: [
-      { path: "attendance", Component: AttendanceRosterPage },
       { index: true, element: <Placeholder title="Dashboard" /> },
+      { path: "attendance", Component: AttendanceRosterPage },
       { path: "payroll", element: <Placeholder title="Payroll Management" /> },
       { path: "shifts", Component: ShiftManagementPage },
       { path: "leave", element: <Placeholder title="Leave Management" /> },

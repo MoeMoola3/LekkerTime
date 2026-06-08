@@ -12,7 +12,7 @@ import { NavLink, useNavigate } from "react-router";
 
 const navItems = [
   { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
-  { name: "Attendance Roster", icon: Users, path: "/" },
+  { name: "Attendance Roster", icon: Users, path: "/attendance" },
   { name: "Payroll Management", icon: Wallet, path: "/payroll" },
   { name: "Shift Management", icon: CalendarClock, path: "/shifts" },
   { name: "Leave Management", icon: CalendarOff, path: "/leave" },

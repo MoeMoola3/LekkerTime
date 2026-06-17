@@ -3,6 +3,7 @@ import { Layout } from "./components/Layout";
 import { AttendanceRosterPage } from "./pages/AttendanceRosterPage";
 import { EmployeesPage } from "./pages/ EmployeesPage";
 import { ShiftManagementPage } from "./pages/ShiftManagementPage";
+import PayrollManagementPage from "./pages/PayrollManagementPage";
 
 // Placeholder component for other routes
 const Placeholder = ({ title }: { title: string }) => (
@@ -23,7 +24,7 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Placeholder title="Dashboard" /> },
       { path: "attendance", Component: AttendanceRosterPage },
-      { path: "payroll", element: <Placeholder title="Payroll Management" /> },
+      { path: "payroll", Component: PayrollManagementPage },
       { path: "shifts", Component: ShiftManagementPage },
       { path: "leave", element: <Placeholder title="Leave Management" /> },
       { path: "employees", Component: EmployeesPage },

@@ -4,6 +4,7 @@ import { AttendanceRosterPage } from "./pages/AttendanceRosterPage";
 import { EmployeesPage } from "./pages/ EmployeesPage";
 import { ShiftManagementPage } from "./pages/ShiftManagementPage";
 import PayrollManagementPage from "./pages/PayrollManagementPage";
+import DashboardPage from "./pages/DashboardPage";
 
 // Placeholder component for other routes
 const Placeholder = ({ title }: { title: string }) => (
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
     path: "/",
     Component: Layout,
     children: [
-      { index: true, element: <Placeholder title="Dashboard" /> },
+      { index: true, Component: DashboardPage },
       { path: "attendance", Component: AttendanceRosterPage },
       { path: "payroll", Component: PayrollManagementPage },
       { path: "shifts", Component: ShiftManagementPage },

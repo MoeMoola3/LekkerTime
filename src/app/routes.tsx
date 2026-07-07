@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
       { path: "attendance", Component: AttendanceRosterPage },
       { path: "payroll", Component: PayrollManagementPage },
       { path: "shifts", Component: ShiftManagementPage },
-      { path: "leave", element: <Placeholder title="Leave Management" /> },
+      { path: "leave", Component: DashboardPage },
       { path: "employees", Component: EmployeesPage },
       { path: "*", element: <Placeholder title="Not Found" /> },
     ],
